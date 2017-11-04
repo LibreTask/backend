@@ -1,0 +1,21 @@
+#Build
+bundle.js
+website/build
+
+# Downloads
+Algernon.dmg
+Algernon.exe
+Algernon.AppImage
+
+# Installs
+node_modules
+
+# OS-specific
+.DS_Store
+
+# Secrets
+*.txt
+*.env.development.real
+*.env.production.real
+scripts/secret
+INFRASTRUCTURE.md
