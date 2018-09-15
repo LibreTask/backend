@@ -16,8 +16,7 @@
     "validator": "^6.0.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5",
-    "webpack": "^3.0.0"
+    "react-scripts": "0.9.5"
   },
   "scripts": {
     "start": "react-scripts start",

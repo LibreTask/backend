@@ -18,7 +18,7 @@ import {
 
 import moment from "moment";
 
-import StripeCheckout from "react-stripe-checkout";
+//import StripeCheckout from "react-stripe-checkout";
 
 import * as UserActions from "../actions/user";
 import * as ProfileController from "../controllers/profile";
@@ -324,6 +324,7 @@ class Profile extends Component {
             Remember me just saves info locally. We do not find that
             useful, so do not do it.
           */}
+          {/*
           <StripeCheckout
             token={this._onPaymentInfoUpdate}
             email={
@@ -351,7 +352,7 @@ class Profile extends Component {
               Update Payment Info
             </Button>
           </StripeCheckout>
-
+          */}
           <form
             id="checkout-form"
             action="/api/v1/user/update-payment-info"
@@ -572,7 +573,7 @@ class Profile extends Component {
 
               {/*
                 NOTE - disable upgrade/downgrade logic during beta
-              
+
               {this._constructAccountUpgradeDowngradeButton()}
               */}
               <div
