@@ -17,11 +17,11 @@ const transporter = nodemailer.createTransport(
   easily be replaced if necessary.
 */
 exports.sendMail = mailOptions => {
-  if (process.env.NODE_ENV === "test") {
+  if (process.env.NODE_ENV === "production") {
+    return transporter.sendMail(mailOptions);
+  } else {
     return new Promise((resolve, reject) => {
       return resolve("No emails are sent during test");
     });
-  } else {
-    return transporter.sendMail(mailOptions);
   }
 };

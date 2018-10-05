@@ -22,6 +22,7 @@ const constants = require("./common/constants");
  * This should happen before anything else, to ensure that subsequent
  * operations are supplied with the proper environment variables.
  */
+
 if (process.env.NODE_ENV === "production") {
   dotenv.load({ path: ".env.production.real" });
 } else {
