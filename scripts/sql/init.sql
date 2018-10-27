@@ -1,14 +1,9 @@
 
-CREATE TYPE plan_type as ENUM('premium', 'basic');
-
 CREATE TYPE platform as ENUM('desktop-mac', 'desktop-windows', 'desktop-linux',
     'mobile-android', 'mobile-ios');
 
 CREATE TABLE users (
   id TEXT,
-  customer_id TEXT,
-  subscription_id TEXT,
-  payment_method_id TEXT,
   email TEXT UNIQUE NOT NULL,
   show_completed_tasks BOOLEAN NOT NULL DEFAULT TRUE,
   email_is_confirmed BOOLEAN NOT NULL DEFAULT FALSE,
@@ -16,9 +11,6 @@ CREATE TABLE users (
   password TEXT,
   password_reset_token TEXT,
   password_reset_expiration_date_time_utc TIMESTAMP,
-  current_plan plan_type,
-  plan_expiration_date_time_utc TIMESTAMP,
-  renew_plan_on_expiration BOOLEAN DEFAULT TRUE,
   created_at_date_time_utc TIMESTAMP,
   updated_at_date_time_utc TIMESTAMP,
   PRIMARY KEY (id)

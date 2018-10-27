@@ -11,6 +11,5 @@ module.exports = Object.freeze({
   CONTACT_FORM_FROM_EMAIL: "hello@algernon.io",
   GENERAL_EMAIL: "hello@algernon.io",
   NO_REPLY_EMAIL: "no-reply@algernon.io",
-  PREMIUM_INFO_URL: "https://algernon.io/premium",
   DEFAULT_MAX_TASKS: 100000 // TODO - revamp this
 });

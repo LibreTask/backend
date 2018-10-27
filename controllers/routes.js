@@ -6,7 +6,6 @@
 const passportConfig = require("../auth/passport");
 const passport = passportConfig.passport;
 const path = require("path");
-const premium = require("../auth/premium");
 
 const userController = require("./user");
 const taskController = require("./task");
@@ -43,13 +42,6 @@ function apiRoutes() {
     an action performed on their behalf.
   */
 
-  let premiumAuth = [
-    // basic auth must come before premium, to prevent redundant checks.
-    // the premium auth is to be seen as an extension to basic auth.
-    passport.authenticate("basic", { session: false }),
-    premium
-  ];
-
   let basicAuth = [passport.authenticate("basic", { session: false })];
 
   apiRouter.get(
@@ -79,35 +71,17 @@ function apiRoutes() {
     basicAuth,
     userController.deleteProfile
   );
-  /*
-  NOTE - Disable upgrade/downgrade during beta
-  apiRouter.post(
-    "/api/v1/user/upgrade-account",
-    basicAuth,
-    userController.upgradeProfile
-  );
-  apiRouter.post(
-    "/api/v1/user/downgrade-account",
-    premiumAuth, // downgrade requires premium account
-    userController.downgradeProfile
-  );
-  apiRouter.post(
-    "/api/v1/user/update-payment-info",
-    premiumAuth, // we do not store any payment info when on basic plan
-    userController.updatePaymentInfo
-  );
-  */
-  apiRouter.post("/api/v1/task/create", premiumAuth, taskController.createTask);
-  apiRouter.post("/api/v1/task/update", premiumAuth, taskController.updateTask);
-  apiRouter.post("/api/v1/task/delete", premiumAuth, taskController.deleteTask);
+  apiRouter.post("/api/v1/task/create", basicAuth, taskController.createTask);
+  apiRouter.post("/api/v1/task/update", basicAuth, taskController.updateTask);
+  apiRouter.post("/api/v1/task/delete", basicAuth, taskController.deleteTask);
   apiRouter.get(
     "/api/v1/task/get-task-by-id/:query",
-    premiumAuth,
+    basicAuth,
     taskController.getTaskById
   );
   apiRouter.get(
     "/api/v1/task/sync-tasks-after-timestamp/:query",
-    premiumAuth,
+    basicAuth,
     taskController.syncTasksAfterTimestamp
   );
 

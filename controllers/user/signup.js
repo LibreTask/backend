@@ -16,23 +16,10 @@ function createNewUser(req, res) {
   crypto.randomBytes(16, (err, buff) => {
     let token = buff.toString("hex");
 
-    let planExpirationDateTimeUtc = new Date();
-    planExpirationDateTimeUtc.setFullYear(
-      planExpirationDateTimeUtc.getFullYear() + 1
-    );
-
     User.create({
       email: req.body.email,
       password: req.body.password,
-      confirmEmailToken: token,
-
-      /*
-        NOTE -
-        All new accounts during the beta receive premium status,
-        so that full functionality can be tested
-      */
-      currentPlan: "premium",
-      planExpirationDateTimeUtc: planExpirationDateTimeUtc
+      confirmEmailToken: token
     }).then(user => {
       const mailOptions = emailTemplates.confirmEmail({
         toAddress: user.email,

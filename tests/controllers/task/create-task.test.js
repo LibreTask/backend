@@ -20,24 +20,14 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe("Create Task", () => {
-  let premiumTestUser = undefined;
   let basicTestUser = undefined;
   let password = "hunter2";
 
   before(done => {
     // create users before running tests
     User.create({
-      email: "test-premium@email.com",
-      password: password,
-      currentPlan: "premium",
-      planExpirationDateTimeUtc: DateUtils.tomorrow()
-    }).then(premiumUser => {
-      premiumTestUser = premiumUser;
-
-      User.create({
         email: "test-basic@email.com",
         password: password,
-        currentPlan: "basic",
         planExpirationDateTimeUtc: DateUtils.tomorrow()
       }).then(basicUser => {
         basicTestUser = basicUser;
@@ -50,10 +40,8 @@ describe("Create Task", () => {
   after(done => {
     // delete user after running tests
     // will cascade and delete tasks as well
-    premiumTestUser.destroy().then(() => {
-      basicTestUser.destroy().then(() => {
-        done();
-      });
+    basicTestUser.destroy().then(() => {
+      done();
     });
   });
 

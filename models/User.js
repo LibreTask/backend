@@ -65,51 +65,6 @@ var User = model.define(
           : null;
       }
     },
-    customerId: {
-      type: Sequelize.TEXT,
-      defaultValue: null,
-      field: "customer_id"
-    },
-    subscriptionId: {
-      type: Sequelize.TEXT,
-      defaultValue: null,
-      field: "subscription_id"
-    },
-    paymentMethodId: {
-      /* this is, e.g., the ID stripe associates with a user's credit card */
-      type: Sequelize.TEXT,
-      defaultValue: null,
-      field: "payment_method_id"
-    },
-    currentPlan: {
-      type: Sequelize.ENUM,
-      values: ["premium", "basic"],
-      defaultValue: "basic",
-      field: "current_plan"
-    },
-    planExpirationDateTimeUtc: {
-      type: Sequelize.DATE,
-      defaultValue: null,
-      field: "plan_expiration_date_time_utc",
-      get: function() {
-        // values are stored in UTC; make that explicit before returning
-        let planExpirationDateTimeUtc = this.getDataValue(
-          "planExpirationDateTimeUtc"
-        );
-        return planExpirationDateTimeUtc
-          ? new Date(planExpirationDateTimeUtc + "Z").getTime()
-          : null;
-      }
-    },
-    renewPlanOnExpiration: {
-      /*
-      Set to false when user has downgraded. Existing plan will remain
-      active until as specified by planExpirationDateTimeUtc.
-     */
-      type: Sequelize.BOOLEAN,
-      field: "renew_plan_on_expiration",
-      default: true
-    },
     createdAtDateTimeUtc: {
       type: Sequelize.DATE,
       field: "created_at_date_time_utc",
@@ -170,9 +125,6 @@ var User = model.define(
           email: this.email,
           showCompletedTasks: this.showCompletedTasks,
           id: this.id,
-          currentPlan: this.currentPlan,
-          planExpirationDateTimeUtc: this.planExpirationDateTimeUtc,
-          renewPlanOnExpiration: this.renewPlanOnExpiration,
           createdAtDateTimeUtc: this.createdAtDateTimeUtc,
           updatedAtDateTimeUtc: this.updatedAtDateTimeUtc
         };
@@ -191,15 +143,6 @@ var User = model.define(
             "Password must be between three and thirty characters"
           );
         }
-      },
-      hasActivePremiumSubscription: function() {
-        let today = new Date().getTime();
-
-        return (
-          this.currentPlan === "premium" &&
-          this.planExpirationDateTimeUtc &&
-          this.planExpirationDateTimeUtc >= today
-        );
       }
     },
     hooks: {

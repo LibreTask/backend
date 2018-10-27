@@ -27,7 +27,6 @@ describe("Confirm Email", () => {
     User.create({
       email: "test-premium@email.com",
       password: password,
-      currentPlan: "premium",
       planExpirationDateTimeUtc: DateUtils.tomorrow(),
       confirmEmailToken: "confirm_email_test_token"
     }).then(user => {

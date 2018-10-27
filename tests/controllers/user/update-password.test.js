@@ -28,7 +28,6 @@ describe("Update password", () => {
     User.create({
       email: "test-premium@email.com",
       password: password,
-      currentPlan: "premium",
       planExpirationDateTimeUtc: DateUtils.tomorrow(),
       passwordResetToken: "a_password_reset_token",
 

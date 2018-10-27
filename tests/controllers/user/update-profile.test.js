@@ -27,7 +27,6 @@ describe("Update user", () => {
     User.create({
       email: "test-premium@email.com",
       password: password,
-      currentPlan: "premium",
       planExpirationDateTimeUtc: DateUtils.tomorrow()
     }).then(user => {
       testUser = user;

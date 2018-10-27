@@ -57,7 +57,5 @@
     "prettier": "^1.5.2",
     "sinon": "^2.3.6",
     "supertest": "^2.0.0",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^1.14.1"
   }
 }

@@ -38,18 +38,9 @@ describe("Sync Tasks", () => {
 
   before(done => {
     // create users before running tests
-    User.create({
-      email: "test-user1@email.com",
-      password: password,
-      currentPlan: "premium",
-      planExpirationDateTimeUtc: DateUtils.tomorrow()
-    }).then(user1 => {
-      testUser1 = user1;
-
       User.create({
         email: "test-user2@email.com",
         password: password,
-        currentPlan: "premium",
         planExpirationDateTimeUtc: DateUtils.tomorrow()
       }).then(user2 => {
         testUser2 = user2;
@@ -101,7 +92,6 @@ describe("Sync Tasks", () => {
               });
           });
       });
-    });
   });
 
   after(done => {

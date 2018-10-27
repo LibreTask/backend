@@ -20,30 +20,19 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe("Update Task", () => {
-  let testUser1 = undefined;
-  let testUser2 = undefined;
+  let testUser = undefined;
   let password = "hunter2";
 
   before(done => {
     // create users before running tests
     User.create({
-      email: "test-user1@email.com",
+      email: "test-user2@email.com",
       password: password,
-      currentPlan: "premium",
       planExpirationDateTimeUtc: DateUtils.tomorrow()
-    }).then(user1 => {
-      testUser1 = user1;
+    }).then(user => {
+      testUser = user;
 
-      User.create({
-        email: "test-user2@email.com",
-        password: password,
-        currentPlan: "premium",
-        planExpirationDateTimeUtc: DateUtils.tomorrow()
-      }).then(user2 => {
-        testUser2 = user2;
-
-        done();
-      });
+      done();
     });
   });
 
