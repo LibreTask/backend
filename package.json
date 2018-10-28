@@ -1,7 +1,7 @@
 {
-  "name": "Algernon",
+  "name": "LibreTask",
   "version": "0.0.1",
-  "description": "Algernon backend code",
+  "description": "LibreTask backend code",
   "scripts": {
     "test": "mocha --recursive ./tests --timeout 10000",
     "precommit": "lint-staged"

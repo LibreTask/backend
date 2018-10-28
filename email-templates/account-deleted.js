@@ -1,6 +1,6 @@
 /*
- * @link https://www.algernon.io/
- * @license https://github.com/AlgernonLabs/algernon/blob/master/LICENSE.md
+ * @link https://libretask.org/
+ * @license https://github.com/LibreTask/backend/blob/master/LICENSE.md
  */
 
 const constants = require("../common/constants");
@@ -8,8 +8,8 @@ const ResponsiveTemplateWithoutButton = require("./inline-templates/responsive-t
 
 function htmlBody() {
   return ResponsiveTemplateWithoutButton({
-    message: "Your Algernon account has been successfully deleted.",
-    title: "Algernon Account Deletion"
+    message: "Your LibreTask account has been successfully deleted.",
+    title: "LibreTask Account Deletion"
   });
 }
 

@@ -1,6 +1,6 @@
 /*
- * @link https://www.algernon.io/
- * @license https://github.com/AlgernonLabs/algernon/blob/master/LICENSE.md
+ * @link https://libretask.org/
+ * @license https://github.com/LibreTask/backend/blob/master/LICENSE.md
  */
 
 const constants = require("../common/constants");
@@ -8,7 +8,7 @@ const ResponsiveTemplateWithoutButton = require("./inline-templates/responsive-t
 
 function htmlBody(userName) {
   return ResponsiveTemplateWithoutButton({
-    message: "Your Algernon registration is complete.",
+    message: "Your LibreTask registration is complete.",
     title: "Registration Complete"
   });
 }

@@ -1,6 +1,6 @@
 /*
- * @link https://www.algernon.io/
- * @license https://github.com/AlgernonLabs/algernon/blob/master/LICENSE.md
+ * @link https://libretask.org/
+ * @license https://github.com/LibreTask/backend/blob/master/LICENSE.md
  */
 
 const constants = require("../common/constants");
@@ -13,7 +13,7 @@ function htmlBody(confToken, includeWelcomeMessage, includeWarningMessage) {
   var warningMessage = "";
 
   if (includeWelcomeMessage) {
-    welcomeMessage = "Welcome to Algernon!";
+    welcomeMessage = "Welcome to LibreTask!";
   }
 
   if (includeWarningMessage) {

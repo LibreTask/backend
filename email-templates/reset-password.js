@@ -1,6 +1,6 @@
 /*
- * @link https://www.algernon.io/
- * @license https://github.com/AlgernonLabs/algernon/blob/master/LICENSE.md
+ * @link https://libretask.org/
+ * @license https://github.com/LibreTask/backend/blob/master/LICENSE.md
  */
 
 const constants = require("../common/constants");
@@ -9,7 +9,7 @@ const ResponsiveTemplateWithButton = require("./inline-templates/responsive-temp
 function htmlBody(resetToken) {
   var resetUrl = constants.SITE_URL + "/confirm-password/" + resetToken;
 
-  const message = `We received a password reset request for your Algernon account. You have 24 hours to click the button and reset your
+  const message = `We received a password reset request for your LibreTask account. You have 24 hours to click the button and reset your
   password.<br><br>If you did not make this request, please notify us at
   <a href='mailto:${constants.SUPPORT_EMAIL}
   ?Subject=Did%20not%20request%20password%20reset'
@@ -30,7 +30,7 @@ function textBody(resetToken) {
   var resetUrl = constants.SITE_URL + "/confirm-password/" + resetToken;
 
   return (
-    "We received a password reset request for your algernon account." +
+    "We received a password reset request for your LibreTask account." +
     "\n\nYou have 24 hours to click on the link and reset your password: " +
     resetUrl +
     +"\n\nIf you did not make this request, please email us at" +

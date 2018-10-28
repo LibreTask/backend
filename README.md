@@ -1,3 +1,3 @@
-Algernon - a minimalist task manager.
+LibreTask - a minimalist task manager.
 
-Visit the website at https://algernon.io.
+Visit the website at https://libretask.org.

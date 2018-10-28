@@ -3,9 +3,9 @@ bundle.js
 website/build
 
 # Downloads
-Algernon.dmg
-Algernon.exe
-Algernon.AppImage
+LibreTask.dmg
+LibreTask.exe
+LibreTask.AppImage
 
 # Installs
 node_modules

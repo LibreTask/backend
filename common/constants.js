@@ -1,15 +1,15 @@
 /*
- * @link https://www.algernon.io/
- * @license https://github.com/AlgernonLabs/algernon/blob/master/LICENSE.md
+ * @link https://libretask.org/
+ * @license https://github.com/LibreTask/backend/blob/master/LICENSE.md
  */
 
 module.exports = Object.freeze({
-  SITE_URL: "https://algernon.io",
-  PROJECT_NAME: "Algernon",
-  COMPANY_NAME: "Algernon Labs, LLC",
-  SUPPORT_EMAIL: "support@algernon.io",
-  CONTACT_FORM_FROM_EMAIL: "hello@algernon.io",
-  GENERAL_EMAIL: "hello@algernon.io",
-  NO_REPLY_EMAIL: "no-reply@algernon.io",
+  SITE_URL: "https://libretask.org",
+  PROJECT_NAME: "LibreTask",
+  COMPANY_NAME: "LibreTask Labs, LLC",
+  SUPPORT_EMAIL: "support@libretask.org",
+  CONTACT_FORM_FROM_EMAIL: "hello@libretask.org",
+  GENERAL_EMAIL: "hello@libretask.org",
+  NO_REPLY_EMAIL: "no-reply@libretask.org",
   DEFAULT_MAX_TASKS: 100000 // TODO - revamp this
 });
