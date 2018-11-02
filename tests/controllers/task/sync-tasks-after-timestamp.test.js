@@ -38,60 +38,60 @@ describe("Sync Tasks", () => {
 
   before(done => {
     // create users before running tests
-      User.create({
-        email: "test-user2@email.com",
-        password: password,
-        planExpirationDateTimeUtc: DateUtils.tomorrow()
-      }).then(user2 => {
-        testUser2 = user2;
+    User.create({
+      email: "test-user2@email.com",
+      password: password,
+      planExpirationDateTimeUtc: DateUtils.tomorrow()
+    }).then(user2 => {
+      testUser2 = user2;
 
-        /*
+      /*
           Insert Tasks into test database using raw SQL so that
           we can circumvent the pre-create hook that would
           override our "updatedAtDateTimeUtc" values.
         */
 
-        // task created by user1
-        Task.sequelize
-          .query(
-            `
+      // task created by user1
+      Task.sequelize
+        .query(
+          `
             INSERT INTO tasks
             (id, owner_id, name, updated_at_date_time_utc)
             VALUES
             ('${testTask1Id}', '${testUser1.id}', '${testTask1Name}',
               '${task1UpdateTime.toISOString()}')
           `
-          )
-          .then(() => {
-            // another task created by user1
-            Task.sequelize
-              .query(
-                `
+        )
+        .then(() => {
+          // another task created by user1
+          Task.sequelize
+            .query(
+              `
               INSERT INTO tasks
               (id, owner_id, name, updated_at_date_time_utc)
               VALUES
               ('${testTask2Id}', '${testUser1.id}', '${testTask2Name}',
                 '${task2UpdateTime.toISOString()}')
             `
-              )
-              .then(() => {
-                // task created by user2
-                Task.sequelize
-                  .query(
-                    `
+            )
+            .then(() => {
+              // task created by user2
+              Task.sequelize
+                .query(
+                  `
                 INSERT INTO tasks
                 (id, owner_id, name, updated_at_date_time_utc)
                 VALUES
                 ('${testTask3Id}', '${testUser2.id}', '${testTask3Name}',
                   '${task3UpdateTime.toISOString()}')
               `
-                  )
-                  .then(() => {
-                    done();
-                  });
-              });
-          });
-      });
+                )
+                .then(() => {
+                  done();
+                });
+            });
+        });
+    });
   });
 
   after(done => {
