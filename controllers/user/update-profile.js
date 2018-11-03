@@ -57,19 +57,12 @@ async function updateProfile(req, res, next) {
       });
     }
 
-    // update stripe profile with new email
-    if (user.customerId) {
-      // TODO - what to do when Stripe fails?
-      // TODO - should we wait on stripe?
-      //  paymentsAdapter.updateCustomerEmail(user.customerId, user.email);
-    }
-
     let token = (await crypto.randomBytes(16)).toString("hex");
     user.confirmEmailToken = token;
     user.emailIsConfirmed = false; // reset for new email
 
     const mailOptions = emailTemplates.confirmEmail({
-      toAddress: user.email,
+      toAddress: updatedEmail,
       fromAddress: constants.NO_REPLY_EMAIL,
       confToken: token,
       includeWarningMessage: true // inform user of update
