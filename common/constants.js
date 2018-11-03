@@ -6,7 +6,6 @@
 module.exports = Object.freeze({
   SITE_URL: "https://libretask.org",
   PROJECT_NAME: "LibreTask",
-  COMPANY_NAME: "LibreTask Labs, LLC",
   SUPPORT_EMAIL: "support@libretask.org",
   CONTACT_FORM_FROM_EMAIL: "hello@libretask.org",
   GENERAL_EMAIL: "hello@libretask.org",

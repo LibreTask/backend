@@ -11,7 +11,6 @@ const ErrorCodes = require("../../errors/error-codes");
 const emailTemplates = require("../../email-templates");
 const EmailAdapter = require("../../adapters/email-adapter");
 const User = require("../../models/User");
-//const paymentsAdapter = require("../../adapters/payments-adapter");
 const logger = require("../../adapters/log-adapter");
 
 /**

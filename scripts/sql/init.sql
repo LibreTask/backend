@@ -1,4 +1,6 @@
 
+-- This script is used to define/create LibreTask database.
+
 CREATE TYPE platform as ENUM('desktop-mac', 'desktop-windows', 'desktop-linux',
     'mobile-android', 'mobile-ios');
 
